@@ -26,7 +26,7 @@ public final class ValueUtils {
 	private static final ValueFactory valueFactory = SimpleValueFactory.getInstance();
 	
 	/**
-	 * Checks whether the given string is a valid {@link URI}.
+	 * Checks whether the given string is a valid {@link IRI}.
 	 * @param source
 	 * @return
 	 */

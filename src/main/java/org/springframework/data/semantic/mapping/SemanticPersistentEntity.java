@@ -52,19 +52,19 @@ public interface SemanticPersistentEntity<T> extends MutablePersistentEntity<T, 
 	 boolean hasContextProperty();
 	 
 	 /**
-	  * Returns the {@link URI} identifying this entity's RDF type.
+	  * Returns the {@link IRI} identifying this entity's RDF type.
 	  * @return
 	  */
 	 IRI getRDFType();
 	 
 	 /**
-	  * Returns the {@link List} of {@link URI}s identifying this entity's superclass' RDF types.
+	  * Returns the {@link List} of {@link IRI}s identifying this entity's superclass' RDF types.
 	  * @return
 	  */
 	 List<IRI> getRDFSuperTypes();
 	 
 	 /**
-	  * Retrieve the {@link URI} of the given instance.
+	  * Retrieve the {@link IRI} of the given instance.
 	  * @param entity
 	  * @return
 	  */
@@ -78,7 +78,7 @@ public interface SemanticPersistentEntity<T> extends MutablePersistentEntity<T, 
 	 void setPersistentState(Object entity, RDFState statements);
 	 
 	 /**
-	  * Set the given {@link URI} as the id of the given instance.
+	  * Set the given {@link IRI} as the id of the given instance.
 	  * @param id
 	  */
 	 void setResourceId(Object entity, IRI id);

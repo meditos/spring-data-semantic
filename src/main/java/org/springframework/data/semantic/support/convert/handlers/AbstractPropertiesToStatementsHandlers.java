@@ -18,8 +18,8 @@ package org.springframework.data.semantic.support.convert.handlers;
 import java.util.Arrays;
 import java.util.Collection;
 
-import org.openrdf.model.Resource;
 import org.openrdf.model.IRI;
+import org.openrdf.model.Resource;
 import org.springframework.data.mapping.Association;
 import org.springframework.data.mapping.AssociationHandler;
 import org.springframework.data.mapping.PropertyHandler;

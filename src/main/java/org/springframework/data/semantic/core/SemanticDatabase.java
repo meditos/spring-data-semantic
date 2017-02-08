@@ -20,11 +20,11 @@ import java.io.IOException;
 import java.util.Collection;
 import java.util.List;
 
+import org.openrdf.model.IRI;
 import org.openrdf.model.Model;
 import org.openrdf.model.Namespace;
 import org.openrdf.model.Resource;
 import org.openrdf.model.Statement;
-import org.openrdf.model.IRI;
 import org.openrdf.model.Value;
 import org.openrdf.query.BindingSet;
 import org.openrdf.query.GraphQuery;

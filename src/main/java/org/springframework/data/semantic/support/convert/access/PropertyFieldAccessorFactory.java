@@ -42,7 +42,9 @@ public class PropertyFieldAccessorFactory implements FieldAccessorFactory {
 	
 	public static class PropertyFieldAccessor implements FieldAccessor {
 		private SemanticPersistentProperty property;
+		@SuppressWarnings("unused")
 		private IRI predicate;
+		@SuppressWarnings("unused")
 		private Class<?> fieldType;
 		private SemanticTemplateStatementsCollector template;
 		

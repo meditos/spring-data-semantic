@@ -5,7 +5,6 @@ import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 import org.springframework.data.semantic.config.ConfigTest;
 import org.springframework.data.semantic.convert.TestEntityInstantiator;
-import org.springframework.data.semantic.mapping.TestMappingPolicy;
 import org.springframework.data.semantic.mapping.TestSemanticEntityState;
 import org.springframework.data.semantic.mapping.TestSemanticPersistentEntity;
 import org.springframework.data.semantic.mapping.TestStringSemanticPersistentEntity;
