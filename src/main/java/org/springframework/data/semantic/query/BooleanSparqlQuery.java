@@ -15,7 +15,7 @@
  */
 package org.springframework.data.semantic.query;
 
-import org.eclipse.rdf4j.RDF4JException;
+import org.eclipse.rdf4j.OpenRDFException;
 import org.eclipse.rdf4j.query.BooleanQuery;
 import org.eclipse.rdf4j.query.MalformedQueryException;
 import org.eclipse.rdf4j.query.QueryEvaluationException;
@@ -47,7 +47,7 @@ public class BooleanSparqlQuery extends AbstractSparqlQuery implements BooleanQu
 			prePrepare();
 			query = connection.prepareBooleanQuery(QueryLanguage.SPARQL, str);
 			postPrepare();
-		} catch (RDF4JException e) {
+		} catch (OpenRDFException e) {
 			throw new QueryEvaluationException(e);
 		}
 	}

@@ -15,7 +15,7 @@
  */
 package org.springframework.data.semantic.query;
 
-import org.eclipse.rdf4j.RDF4JException;
+import org.eclipse.rdf4j.OpenRDFException;
 import org.eclipse.rdf4j.query.GraphQuery;
 import org.eclipse.rdf4j.query.GraphQueryResult;
 import org.eclipse.rdf4j.query.MalformedQueryException;
@@ -55,7 +55,7 @@ public class GraphSparqlQuery extends AbstractSparqlQuery implements GraphQuery 
 			prePrepare();
 			query = connection.prepareGraphQuery(QueryLanguage.SPARQL, str);
 			postPrepare();
-		} catch (RDF4JException e) {
+		} catch (OpenRDFException e) {
 			throw new QueryEvaluationException(e);
 		}
 	}
