@@ -20,19 +20,19 @@ import static org.junit.Assert.assertTrue;
 import java.io.IOException;
 import java.util.Properties;
 
+import org.eclipse.rdf4j.http.protocol.Protocol;
+import org.eclipse.rdf4j.model.IRI;
+import org.eclipse.rdf4j.model.ValueFactory;
+import org.eclipse.rdf4j.model.vocabulary.RDF;
+import org.eclipse.rdf4j.query.BindingSet;
+import org.eclipse.rdf4j.query.QueryLanguage;
+import org.eclipse.rdf4j.query.TupleQuery;
+import org.eclipse.rdf4j.query.TupleQueryResult;
+import org.eclipse.rdf4j.repository.Repository;
+import org.eclipse.rdf4j.repository.RepositoryConnection;
+import org.eclipse.rdf4j.repository.RepositoryException;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import org.openrdf.http.protocol.Protocol;
-import org.openrdf.model.IRI;
-import org.openrdf.model.ValueFactory;
-import org.openrdf.model.vocabulary.RDF;
-import org.openrdf.query.BindingSet;
-import org.openrdf.query.QueryLanguage;
-import org.openrdf.query.TupleQuery;
-import org.openrdf.query.TupleQueryResult;
-import org.openrdf.repository.Repository;
-import org.openrdf.repository.RepositoryConnection;
-import org.openrdf.repository.RepositoryException;
 import org.springframework.core.io.ClassPathResource;
 
 public class SemanticDatabaseManagerTest {

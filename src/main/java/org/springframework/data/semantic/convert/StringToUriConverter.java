@@ -15,7 +15,7 @@
  */
 package org.springframework.data.semantic.convert;
 
-import org.openrdf.model.IRI;
+import org.eclipse.rdf4j.model.IRI;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.data.semantic.support.util.ValueUtils;
 

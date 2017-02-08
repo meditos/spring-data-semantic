@@ -15,7 +15,7 @@
  */
 package org.springframework.data.semantic.convert;
 
-import org.openrdf.model.IRI;
+import org.eclipse.rdf4j.model.IRI;
 import org.springframework.data.semantic.core.RDFState;
 import org.springframework.data.semantic.mapping.SemanticPersistentEntity;
 

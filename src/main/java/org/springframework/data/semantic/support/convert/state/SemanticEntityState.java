@@ -21,9 +21,9 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-import org.openrdf.model.IRI;
-import org.openrdf.model.Model;
-import org.openrdf.model.Statement;
+import org.eclipse.rdf4j.model.IRI;
+import org.eclipse.rdf4j.model.Model;
+import org.eclipse.rdf4j.model.Statement;
 import org.springframework.core.convert.ConversionService;
 import org.springframework.data.semantic.convert.access.FieldAccessor;
 import org.springframework.data.semantic.convert.access.FieldAccessorProvider;

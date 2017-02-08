@@ -20,13 +20,13 @@ import static org.junit.Assert.assertNotNull;
 
 import java.util.Arrays;
 
+import org.eclipse.rdf4j.model.IRI;
+import org.eclipse.rdf4j.model.Literal;
+import org.eclipse.rdf4j.model.impl.SimpleNamespace;
+import org.eclipse.rdf4j.model.impl.SimpleValueFactory;
+import org.eclipse.rdf4j.model.vocabulary.RDF;
 import org.junit.Before;
 import org.junit.Test;
-import org.openrdf.model.IRI;
-import org.openrdf.model.Literal;
-import org.openrdf.model.impl.SimpleNamespace;
-import org.openrdf.model.impl.SimpleValueFactory;
-import org.openrdf.model.vocabulary.RDF;
 import org.springframework.data.semantic.core.RDFState;
 import org.springframework.data.semantic.mapping.SemanticPersistentEntity;
 import org.springframework.data.semantic.model.ModelEntity;

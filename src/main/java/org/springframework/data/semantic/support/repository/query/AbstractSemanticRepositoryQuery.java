@@ -23,7 +23,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.openrdf.model.IRI;
+import org.eclipse.rdf4j.model.IRI;
 import org.springframework.data.repository.query.Parameter;
 import org.springframework.data.repository.query.ParameterAccessor;
 import org.springframework.data.repository.query.Parameters;

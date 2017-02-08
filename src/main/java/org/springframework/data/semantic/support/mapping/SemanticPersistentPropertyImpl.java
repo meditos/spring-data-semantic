@@ -26,7 +26,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-import org.openrdf.model.IRI;
+import org.eclipse.rdf4j.model.IRI;
 import org.springframework.data.annotation.Transient;
 import org.springframework.data.mapping.Association;
 import org.springframework.data.mapping.PersistentEntity;

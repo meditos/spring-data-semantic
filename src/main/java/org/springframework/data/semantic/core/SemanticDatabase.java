@@ -20,21 +20,21 @@ import java.io.IOException;
 import java.util.Collection;
 import java.util.List;
 
-import org.openrdf.model.IRI;
-import org.openrdf.model.Model;
-import org.openrdf.model.Namespace;
-import org.openrdf.model.Resource;
-import org.openrdf.model.Statement;
-import org.openrdf.model.Value;
-import org.openrdf.query.BindingSet;
-import org.openrdf.query.GraphQuery;
-import org.openrdf.query.MalformedQueryException;
-import org.openrdf.query.QueryEvaluationException;
-import org.openrdf.query.QueryInterruptedException;
-import org.openrdf.repository.Repository;
-import org.openrdf.repository.RepositoryConnection;
-import org.openrdf.repository.RepositoryException;
-import org.openrdf.rio.RDFParseException;
+import org.eclipse.rdf4j.model.IRI;
+import org.eclipse.rdf4j.model.Model;
+import org.eclipse.rdf4j.model.Namespace;
+import org.eclipse.rdf4j.model.Resource;
+import org.eclipse.rdf4j.model.Statement;
+import org.eclipse.rdf4j.model.Value;
+import org.eclipse.rdf4j.query.BindingSet;
+import org.eclipse.rdf4j.query.GraphQuery;
+import org.eclipse.rdf4j.query.MalformedQueryException;
+import org.eclipse.rdf4j.query.QueryEvaluationException;
+import org.eclipse.rdf4j.query.QueryInterruptedException;
+import org.eclipse.rdf4j.repository.Repository;
+import org.eclipse.rdf4j.repository.RepositoryConnection;
+import org.eclipse.rdf4j.repository.RepositoryException;
+import org.eclipse.rdf4j.rio.RDFParseException;
 import org.springframework.data.repository.query.QueryCreationException;
 
 /**

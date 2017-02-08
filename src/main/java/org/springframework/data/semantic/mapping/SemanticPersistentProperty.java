@@ -17,7 +17,7 @@ package org.springframework.data.semantic.mapping;
 
 import java.util.List;
 
-import org.openrdf.model.IRI;
+import org.eclipse.rdf4j.model.IRI;
 import org.springframework.data.mapping.PersistentProperty;
 import org.springframework.data.semantic.annotation.Context;
 import org.springframework.data.semantic.annotation.Optional;

@@ -24,10 +24,10 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Locale;
 
+import org.eclipse.rdf4j.model.IRI;
+import org.eclipse.rdf4j.model.impl.SimpleNamespace;
 import org.junit.Before;
 import org.junit.Test;
-import org.openrdf.model.IRI;
-import org.openrdf.model.impl.SimpleNamespace;
 import org.springframework.data.semantic.mapping.SemanticPersistentEntity;
 import org.springframework.data.semantic.model.ModelEntity;
 import org.springframework.data.semantic.model.ModelEntityCollector;

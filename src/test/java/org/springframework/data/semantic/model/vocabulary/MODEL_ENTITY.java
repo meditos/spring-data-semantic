@@ -15,7 +15,7 @@
  */
 package org.springframework.data.semantic.model.vocabulary;
 
-import org.openrdf.model.IRI;
+import org.eclipse.rdf4j.model.IRI;
 
 public class MODEL_ENTITY extends VOCABULARY {
 	

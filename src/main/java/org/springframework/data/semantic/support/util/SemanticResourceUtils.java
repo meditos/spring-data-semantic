@@ -18,7 +18,7 @@ package org.springframework.data.semantic.support.util;
 import java.util.LinkedList;
 import java.util.List;
 
-import org.openrdf.model.IRI;
+import org.eclipse.rdf4j.model.IRI;
 import org.springframework.data.semantic.support.model.SemanticResource;
 
 public class SemanticResourceUtils {

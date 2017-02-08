@@ -19,8 +19,8 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
-import org.openrdf.model.IRI;
-import org.openrdf.model.Model;
+import org.eclipse.rdf4j.model.IRI;
+import org.eclipse.rdf4j.model.Model;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.semantic.support.mapping.SemanticMappingContext;
 

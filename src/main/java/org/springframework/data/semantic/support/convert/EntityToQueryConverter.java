@@ -19,7 +19,7 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
 
-import org.openrdf.model.IRI;
+import org.eclipse.rdf4j.model.IRI;
 import org.springframework.data.semantic.mapping.MappingPolicy;
 import org.springframework.data.semantic.mapping.SemanticPersistentEntity;
 import org.springframework.data.semantic.mapping.SemanticPersistentProperty;

@@ -23,15 +23,15 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
+import org.eclipse.rdf4j.model.Model;
+import org.eclipse.rdf4j.model.Namespace;
+import org.eclipse.rdf4j.model.Statement;
+import org.eclipse.rdf4j.model.impl.SimpleNamespace;
+import org.eclipse.rdf4j.model.impl.SimpleValueFactory;
+import org.eclipse.rdf4j.model.impl.TreeModel;
+import org.eclipse.rdf4j.model.vocabulary.RDF;
+import org.eclipse.rdf4j.repository.RepositoryException;
 import org.junit.Test;
-import org.openrdf.model.Model;
-import org.openrdf.model.Namespace;
-import org.openrdf.model.Statement;
-import org.openrdf.model.impl.SimpleNamespace;
-import org.openrdf.model.impl.SimpleValueFactory;
-import org.openrdf.model.impl.TreeModel;
-import org.openrdf.model.vocabulary.RDF;
-import org.openrdf.repository.RepositoryException;
 import org.springframework.data.semantic.support.mapping.SemanticMappingContext;
 import org.springframework.data.semantic.support.util.ValueUtils;
 

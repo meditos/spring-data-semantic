@@ -19,9 +19,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
-import org.openrdf.model.IRI;
-import org.openrdf.model.Model;
-import org.openrdf.model.Resource;
+import org.eclipse.rdf4j.model.IRI;
+import org.eclipse.rdf4j.model.Model;
+import org.eclipse.rdf4j.model.Resource;
 import org.springframework.data.semantic.convert.access.FieldAccessor;
 import org.springframework.data.semantic.convert.access.FieldAccessorFactory;
 import org.springframework.data.semantic.core.SemanticOperationsCRUD;

@@ -19,10 +19,10 @@ import static org.junit.Assert.assertEquals;
 
 import java.util.ArrayList;
 
+import org.eclipse.rdf4j.model.IRI;
+import org.eclipse.rdf4j.model.Namespace;
+import org.eclipse.rdf4j.model.impl.SimpleNamespace;
 import org.junit.Test;
-import org.openrdf.model.IRI;
-import org.openrdf.model.Namespace;
-import org.openrdf.model.impl.SimpleNamespace;
 import org.springframework.data.semantic.annotation.ResourceId;
 import org.springframework.data.semantic.annotation.SemanticEntity;
 import org.springframework.data.semantic.support.mapping.SemanticMappingContext;

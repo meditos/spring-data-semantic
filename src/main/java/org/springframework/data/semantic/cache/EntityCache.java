@@ -15,7 +15,7 @@
  */
 package org.springframework.data.semantic.cache;
 
-import org.openrdf.model.IRI;
+import org.eclipse.rdf4j.model.IRI;
 
 public interface EntityCache {
 	

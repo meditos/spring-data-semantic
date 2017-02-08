@@ -21,8 +21,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
-import org.openrdf.model.IRI;
-import org.openrdf.model.Value;
+import org.eclipse.rdf4j.model.IRI;
+import org.eclipse.rdf4j.model.Value;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.convert.ConversionService;

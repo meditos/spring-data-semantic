@@ -18,8 +18,8 @@ package org.springframework.data.semantic.core;
 import java.util.Collection;
 import java.util.Map;
 
-import org.openrdf.model.IRI;
-import org.openrdf.model.Model;
+import org.eclipse.rdf4j.model.IRI;
+import org.eclipse.rdf4j.model.Model;
 import org.springframework.data.semantic.mapping.MappingPolicy;
 import org.springframework.data.semantic.mapping.SemanticPersistentProperty;
 

@@ -18,7 +18,7 @@ package org.springframework.data.semantic.support.repository;
 import java.util.LinkedList;
 import java.util.List;
 
-import org.openrdf.model.IRI;
+import org.eclipse.rdf4j.model.IRI;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;

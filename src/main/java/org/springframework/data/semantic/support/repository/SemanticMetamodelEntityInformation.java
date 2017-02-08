@@ -15,7 +15,7 @@
  */
 package org.springframework.data.semantic.support.repository;
 
-import org.openrdf.model.IRI;
+import org.eclipse.rdf4j.model.IRI;
 import org.springframework.data.repository.core.support.AbstractEntityInformation;
 
 public class SemanticMetamodelEntityInformation<T> extends AbstractEntityInformation<T, IRI> {

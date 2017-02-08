@@ -26,14 +26,14 @@ import java.util.Set;
 
 import javax.xml.datatype.XMLGregorianCalendar;
 
+import org.eclipse.rdf4j.model.IRI;
+import org.eclipse.rdf4j.model.Namespace;
+import org.eclipse.rdf4j.model.Value;
+import org.eclipse.rdf4j.model.impl.SimpleValueFactory;
 import org.joda.time.Duration;
 import org.joda.time.Instant;
 import org.joda.time.Interval;
 import org.joda.time.Period;
-import org.openrdf.model.IRI;
-import org.openrdf.model.Namespace;
-import org.openrdf.model.Value;
-import org.openrdf.model.impl.SimpleValueFactory;
 import org.springframework.data.mapping.context.AbstractMappingContext;
 import org.springframework.data.mapping.model.SimpleTypeHolder;
 import org.springframework.data.semantic.annotation.SemanticEntity;

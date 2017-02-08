@@ -15,7 +15,7 @@
  */
 package org.springframework.data.semantic.support.convert;
 
-import org.openrdf.model.IRI;
+import org.eclipse.rdf4j.model.IRI;
 import org.springframework.data.convert.EntityInstantiator;
 import org.springframework.data.convert.ReflectionEntityInstantiator;
 import org.springframework.data.semantic.convert.SemanticEntityInstantiator;

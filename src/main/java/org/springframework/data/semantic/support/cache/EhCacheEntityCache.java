@@ -17,7 +17,7 @@ package org.springframework.data.semantic.support.cache;
 
 import java.io.Serializable;
 
-import org.openrdf.model.IRI;
+import org.eclipse.rdf4j.model.IRI;
 import org.springframework.data.semantic.cache.EntityCache;
 import org.springframework.data.semantic.mapping.SemanticPersistentEntity;
 import org.springframework.data.semantic.support.mapping.SemanticMappingContext;

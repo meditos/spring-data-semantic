@@ -15,18 +15,18 @@
  */
 package org.springframework.data.semantic.query;
 
-import org.openrdf.OpenRDFException;
-import org.openrdf.query.MalformedQueryException;
-import org.openrdf.query.QueryEvaluationException;
-import org.openrdf.query.QueryLanguage;
-import org.openrdf.query.TupleQuery;
-import org.openrdf.query.TupleQueryResult;
-import org.openrdf.query.TupleQueryResultHandler;
-import org.openrdf.query.TupleQueryResultHandlerException;
-import org.openrdf.query.UnsupportedQueryLanguageException;
-import org.openrdf.query.impl.SimpleDataset;
-import org.openrdf.query.parser.ParsedTupleQuery;
-import org.openrdf.repository.RepositoryConnection;
+import org.eclipse.rdf4j.OpenRDFException;
+import org.eclipse.rdf4j.query.MalformedQueryException;
+import org.eclipse.rdf4j.query.QueryEvaluationException;
+import org.eclipse.rdf4j.query.QueryLanguage;
+import org.eclipse.rdf4j.query.TupleQuery;
+import org.eclipse.rdf4j.query.TupleQueryResult;
+import org.eclipse.rdf4j.query.TupleQueryResultHandler;
+import org.eclipse.rdf4j.query.TupleQueryResultHandlerException;
+import org.eclipse.rdf4j.query.UnsupportedQueryLanguageException;
+import org.eclipse.rdf4j.query.impl.SimpleDataset;
+import org.eclipse.rdf4j.query.parser.ParsedTupleQuery;
+import org.eclipse.rdf4j.repository.RepositoryConnection;
 import org.springframework.data.semantic.support.util.ValueUtils;
 
 

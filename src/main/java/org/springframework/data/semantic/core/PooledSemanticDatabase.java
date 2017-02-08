@@ -22,29 +22,30 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
-import org.openrdf.model.IRI;
-import org.openrdf.model.Model;
-import org.openrdf.model.Namespace;
-import org.openrdf.model.Resource;
-import org.openrdf.model.Statement;
-import org.openrdf.model.Value;
-import org.openrdf.model.impl.SimpleNamespace;
-import org.openrdf.model.impl.SimpleValueFactory;
-import org.openrdf.query.BindingSet;
-import org.openrdf.query.MalformedQueryException;
-import org.openrdf.query.QueryEvaluationException;
-import org.openrdf.query.QueryInterruptedException;
-import org.openrdf.query.QueryLanguage;
-import org.openrdf.query.QueryResults;
-import org.openrdf.query.Update;
-import org.openrdf.query.UpdateExecutionException;
-import org.openrdf.repository.Repository;
-import org.openrdf.repository.RepositoryConnection;
-import org.openrdf.repository.RepositoryException;
-import org.openrdf.repository.RepositoryResult;
-import org.openrdf.rio.RDFFormat;
-import org.openrdf.rio.RDFParseException;
-import org.openrdf.rio.Rio;
+import org.eclipse.rdf4j.common.iteration.Iterations;
+import org.eclipse.rdf4j.model.IRI;
+import org.eclipse.rdf4j.model.Model;
+import org.eclipse.rdf4j.model.Namespace;
+import org.eclipse.rdf4j.model.Resource;
+import org.eclipse.rdf4j.model.Statement;
+import org.eclipse.rdf4j.model.Value;
+import org.eclipse.rdf4j.model.impl.SimpleNamespace;
+import org.eclipse.rdf4j.model.impl.SimpleValueFactory;
+import org.eclipse.rdf4j.query.BindingSet;
+import org.eclipse.rdf4j.query.MalformedQueryException;
+import org.eclipse.rdf4j.query.QueryEvaluationException;
+import org.eclipse.rdf4j.query.QueryInterruptedException;
+import org.eclipse.rdf4j.query.QueryLanguage;
+import org.eclipse.rdf4j.query.QueryResults;
+import org.eclipse.rdf4j.query.Update;
+import org.eclipse.rdf4j.query.UpdateExecutionException;
+import org.eclipse.rdf4j.repository.Repository;
+import org.eclipse.rdf4j.repository.RepositoryConnection;
+import org.eclipse.rdf4j.repository.RepositoryException;
+import org.eclipse.rdf4j.repository.RepositoryResult;
+import org.eclipse.rdf4j.rio.RDFFormat;
+import org.eclipse.rdf4j.rio.RDFParseException;
+import org.eclipse.rdf4j.rio.Rio;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.dao.InvalidDataAccessApiUsageException;
@@ -52,11 +53,9 @@ import org.springframework.data.repository.query.QueryCreationException;
 import org.springframework.data.semantic.query.BooleanSparqlQuery;
 import org.springframework.data.semantic.query.GraphSparqlQuery;
 import org.springframework.data.semantic.query.TupleSparqlQuery;
-import org.springframework.data.semantic.support.database.SesameConnectionPool;
+import org.springframework.data.semantic.support.database.Rdf4jConnectionPool;
 import org.springframework.data.semantic.support.exceptions.SemanticDatabaseAccessException;
 import org.springframework.data.semantic.support.exceptions.UncategorizedSemanticDataAccessException;
-
-import info.aduna.iteration.Iterations;
 
 /**
  * An implementation of {@link SemanticDatabase} that uses connection pooling.
@@ -66,15 +65,15 @@ import info.aduna.iteration.Iterations;
  */
 public class PooledSemanticDatabase implements SemanticDatabase{
 
-	private SesameConnectionPool connectionPool;
+	private Rdf4jConnectionPool connectionPool;
 	
 	private Logger logger = LoggerFactory.getLogger(PooledSemanticDatabase.class);
 
 	public PooledSemanticDatabase(Repository repository, int maxConnections){
-		this(new SesameConnectionPool(repository, maxConnections, 6000));			
+		this(new Rdf4jConnectionPool(repository, maxConnections, 6000));			
 	}
 
-	public PooledSemanticDatabase(SesameConnectionPool pool){
+	public PooledSemanticDatabase(Rdf4jConnectionPool pool){
 		this.connectionPool = pool;
 	}
 

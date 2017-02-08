@@ -15,7 +15,7 @@
  */
 package org.springframework.data.semantic.model.vocabulary;
 
-import org.openrdf.model.IRI;
+import org.eclipse.rdf4j.model.IRI;
 
 /**
  * Vocabulary constants for the wine ontology.

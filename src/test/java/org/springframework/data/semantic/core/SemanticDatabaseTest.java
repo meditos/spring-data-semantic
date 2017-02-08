@@ -20,15 +20,15 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.List;
 
+import org.eclipse.rdf4j.model.IRI;
+import org.eclipse.rdf4j.model.Model;
+import org.eclipse.rdf4j.model.Namespace;
+import org.eclipse.rdf4j.model.impl.LinkedHashModel;
+import org.eclipse.rdf4j.query.BindingSet;
+import org.eclipse.rdf4j.repository.RepositoryException;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.openrdf.model.IRI;
-import org.openrdf.model.Model;
-import org.openrdf.model.Namespace;
-import org.openrdf.model.impl.LinkedHashModel;
-import org.openrdf.query.BindingSet;
-import org.openrdf.repository.RepositoryException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.semantic.support.util.ValueUtils;
 import org.springframework.data.semantic.testutils.Utils;

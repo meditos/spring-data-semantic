@@ -19,9 +19,9 @@ import java.util.Date;
 
 import javax.xml.datatype.XMLGregorianCalendar;
 
-import org.openrdf.model.Value;
-import org.openrdf.model.ValueFactory;
-import org.openrdf.model.impl.SimpleValueFactory;
+import org.eclipse.rdf4j.model.Value;
+import org.eclipse.rdf4j.model.ValueFactory;
+import org.eclipse.rdf4j.model.impl.SimpleValueFactory;
 import org.springframework.core.convert.converter.Converter;
 
 /**

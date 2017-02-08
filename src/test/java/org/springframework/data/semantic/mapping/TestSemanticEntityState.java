@@ -17,10 +17,10 @@ package org.springframework.data.semantic.mapping;
 
 import static org.junit.Assert.assertEquals;
 
+import org.eclipse.rdf4j.model.impl.SimpleValueFactory;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.openrdf.model.impl.SimpleValueFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.convert.support.DefaultConversionService;
 import org.springframework.data.semantic.core.RDFState;

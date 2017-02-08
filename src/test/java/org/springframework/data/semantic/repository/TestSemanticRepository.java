@@ -28,15 +28,15 @@ import java.util.List;
 
 import javax.xml.datatype.XMLGregorianCalendar;
 
+import org.eclipse.rdf4j.model.IRI;
+import org.eclipse.rdf4j.model.Statement;
+import org.eclipse.rdf4j.model.datatypes.XMLDatatypeUtil;
+import org.eclipse.rdf4j.repository.RepositoryException;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.openrdf.model.IRI;
-import org.openrdf.model.Statement;
-import org.openrdf.model.datatypes.XMLDatatypeUtil;
-import org.openrdf.repository.RepositoryException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.semantic.core.SemanticDatabase;

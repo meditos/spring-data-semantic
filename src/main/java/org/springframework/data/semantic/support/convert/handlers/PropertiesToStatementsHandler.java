@@ -15,10 +15,10 @@
  */
 package org.springframework.data.semantic.support.convert.handlers;
 
-import org.openrdf.model.IRI;
-import org.openrdf.model.Resource;
-import org.openrdf.model.Value;
-import org.openrdf.model.impl.SimpleValueFactory;
+import org.eclipse.rdf4j.model.IRI;
+import org.eclipse.rdf4j.model.Resource;
+import org.eclipse.rdf4j.model.Value;
+import org.eclipse.rdf4j.model.impl.SimpleValueFactory;
 import org.springframework.data.semantic.core.RDFState;
 import org.springframework.data.semantic.mapping.SemanticPersistentEntity;
 import org.springframework.data.semantic.mapping.SemanticPersistentProperty;

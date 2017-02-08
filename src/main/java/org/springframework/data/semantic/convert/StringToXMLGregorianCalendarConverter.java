@@ -17,7 +17,7 @@ package org.springframework.data.semantic.convert;
 
 import javax.xml.datatype.XMLGregorianCalendar;
 
-import org.openrdf.model.datatypes.XMLDatatypeUtil;
+import org.eclipse.rdf4j.model.datatypes.XMLDatatypeUtil;
 import org.springframework.core.convert.converter.Converter;
 
 public class StringToXMLGregorianCalendarConverter implements Converter<String, XMLGregorianCalendar> {

@@ -17,7 +17,7 @@ package org.springframework.data.semantic.model;
 
 import java.util.Date;
 
-import org.openrdf.model.IRI;
+import org.eclipse.rdf4j.model.IRI;
 import org.springframework.data.semantic.annotation.ResourceId;
 import org.springframework.data.semantic.annotation.SemanticEntity;
 

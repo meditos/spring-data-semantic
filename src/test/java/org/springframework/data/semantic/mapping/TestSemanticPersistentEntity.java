@@ -21,10 +21,10 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.Arrays;
 
+import org.eclipse.rdf4j.model.IRI;
+import org.eclipse.rdf4j.model.impl.SimpleNamespace;
 import org.junit.Before;
 import org.junit.Test;
-import org.openrdf.model.IRI;
-import org.openrdf.model.impl.SimpleNamespace;
 import org.springframework.data.semantic.model.ModelEntity;
 import org.springframework.data.semantic.support.mapping.SemanticMappingContext;
 import org.springframework.data.semantic.support.util.ValueUtils;

@@ -20,8 +20,8 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.openrdf.model.IRI;
-import org.openrdf.model.Value;
+import org.eclipse.rdf4j.model.IRI;
+import org.eclipse.rdf4j.model.Value;
 import org.springframework.data.mapping.Association;
 import org.springframework.data.semantic.convert.ObjectToLiteralConverter;
 import org.springframework.data.semantic.mapping.MappingPolicy;

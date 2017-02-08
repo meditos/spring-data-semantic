@@ -17,7 +17,7 @@ package org.springframework.data.semantic.model;
 
 import java.util.List;
 
-import org.openrdf.model.IRI;
+import org.eclipse.rdf4j.model.IRI;
 import org.springframework.data.semantic.repository.SemanticRepository;
 
 public interface ModelEntityRepository extends SemanticRepository<ModelEntity> {

@@ -17,8 +17,8 @@ package org.springframework.data.semantic.mapping;
 
 import java.util.List;
 
-import org.openrdf.model.IRI;
-import org.openrdf.model.Resource;
+import org.eclipse.rdf4j.model.IRI;
+import org.eclipse.rdf4j.model.Resource;
 import org.springframework.data.mapping.model.MutablePersistentEntity;
 import org.springframework.data.semantic.core.RDFState;
 

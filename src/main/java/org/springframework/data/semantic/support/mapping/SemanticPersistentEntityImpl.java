@@ -19,9 +19,9 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-import org.openrdf.model.IRI;
-import org.openrdf.model.Resource;
-import org.openrdf.model.vocabulary.RDF;
+import org.eclipse.rdf4j.model.IRI;
+import org.eclipse.rdf4j.model.Resource;
+import org.eclipse.rdf4j.model.vocabulary.RDF;
 import org.springframework.data.mapping.model.BasicPersistentEntity;
 import org.springframework.data.semantic.annotation.Namespace;
 import org.springframework.data.semantic.annotation.SemanticEntity;

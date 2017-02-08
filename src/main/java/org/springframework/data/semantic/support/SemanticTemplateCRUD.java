@@ -22,9 +22,9 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-import org.openrdf.model.IRI;
-import org.openrdf.model.Model;
-import org.openrdf.repository.RepositoryException;
+import org.eclipse.rdf4j.model.IRI;
+import org.eclipse.rdf4j.model.Model;
+import org.eclipse.rdf4j.repository.RepositoryException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeansException;
