@@ -24,7 +24,7 @@ import org.openrdf.model.Model;
 import org.openrdf.model.Namespace;
 import org.openrdf.model.Resource;
 import org.openrdf.model.Statement;
-import org.openrdf.model.URI;
+import org.openrdf.model.IRI;
 import org.openrdf.model.Value;
 import org.openrdf.query.BindingSet;
 import org.openrdf.query.GraphQuery;
@@ -59,7 +59,7 @@ public interface SemanticDatabase {
 	void clear();
 	
 	/**
-	 * Return a default {@link Namespace} to be used for creating {@link URI}s from class and property names when not explicitly provided.
+	 * Return a default {@link Namespace} to be used for creating {@link IRI}s from class and property names when not explicitly provided.
 	 * @return
 	 * @throws RepositoryException
 	 */
@@ -75,7 +75,7 @@ public interface SemanticDatabase {
 	/**
 	 * Add a {@link Namespace} to the semantic database from a prefix and string definition.
 	 * @param prefix - the short alias by which to refer to the namespace.
-	 * @param namespace - the full namespace URI.
+	 * @param namespace - the full namespace IRI.
 	 * @throws RepositoryException
 	 */
 	void addNamespace(String prefix, String namespace) throws RepositoryException;
@@ -134,7 +134,7 @@ public interface SemanticDatabase {
 	 * @return
 	 * @throws RepositoryException
 	 */
-	List<Statement> getStatementsForPredicate(URI predicate);
+	List<Statement> getStatementsForPredicate(IRI predicate);
 	
 	/**
 	 * Retrieve the {@link List} of {@link Statement}s for the given object.
@@ -160,7 +160,7 @@ public interface SemanticDatabase {
 	 * @return
 	 * @throws RepositoryException
 	 */
-	List<Statement> getStatementsForTriplePattern(Resource subject, URI predicate, Value object);
+	List<Statement> getStatementsForTriplePattern(Resource subject, IRI predicate, Value object);
 	
 	/**
 	 * Retrieve the {@link List} of {@link Statement}s for the pattern defined by the given subject, predicate, object and context.
@@ -171,7 +171,7 @@ public interface SemanticDatabase {
 	 * @return
 	 * @throws RepositoryException
 	 */
-	List<Statement> getStatementsForQuadruplePattern(Resource subject, URI predicate, Value object, Resource context);
+	List<Statement> getStatementsForQuadruplePattern(Resource subject, IRI predicate, Value object, Resource context);
 	
 	/**
 	 * Add the given {@link Statement} to the semantic database.
@@ -187,7 +187,7 @@ public interface SemanticDatabase {
 	 * @param object
 	 * @throws RepositoryException
 	 */
-	void addStatement(Resource subject, URI predicate, Value object);
+	void addStatement(Resource subject, IRI predicate, Value object);
 	
 	/**
 	 * Add the {@link Statement} defined by the given subject, predicate, object and context to the semantic database.
@@ -197,7 +197,7 @@ public interface SemanticDatabase {
 	 * @param context
 	 * @throws RepositoryException
 	 */
-	void addStatement(Resource subject, URI predicate, Value object, Resource context);
+	void addStatement(Resource subject, IRI predicate, Value object, Resource context);
 	
 	/**
 	 * Add a {@link Collection} of {@link Statement}s to the semantic database.
@@ -227,7 +227,7 @@ public interface SemanticDatabase {
 	 * @param predicate
 	 * @param object
 	 */
-	void removeStatements(Resource subject, URI predicate, Value object);
+	void removeStatements(Resource subject, IRI predicate, Value object);
 	
 	/**
 	 * Delete the {@link Statement} defined by the given subject, predicate, object and graph.
@@ -236,7 +236,7 @@ public interface SemanticDatabase {
 	 * @param object
 	 * @param context
 	 */
-	void removeStatements(Resource subject, URI predicate, Value object, Resource context);
+	void removeStatements(Resource subject, IRI predicate, Value object, Resource context);
 	
 	/**
 	 * 

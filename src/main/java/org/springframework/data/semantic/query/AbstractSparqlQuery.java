@@ -22,7 +22,7 @@ import java.util.regex.Pattern;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.openrdf.model.URI;
+import org.openrdf.model.IRI;
 import org.openrdf.query.Binding;
 import org.openrdf.query.BindingSet;
 import org.openrdf.query.Dataset;
@@ -33,7 +33,7 @@ import org.openrdf.query.UnsupportedQueryLanguageException;
 import org.openrdf.query.algebra.Slice;
 import org.openrdf.query.algebra.TupleExpr;
 import org.openrdf.query.impl.AbstractQuery;
-import org.openrdf.query.impl.DatasetImpl;
+import org.openrdf.query.impl.SimpleDataset;
 import org.openrdf.query.parser.ParsedQuery;
 import org.openrdf.query.parser.QueryParserUtil;
 import org.openrdf.repository.RepositoryConnection;
@@ -207,7 +207,7 @@ public abstract class AbstractSparqlQuery extends AbstractQuery {
 		
 		Query query = getQuery();
 		query.setIncludeInferred(includeInferred);
-		query.setMaxQueryTime(maxQueryTime);
+		query.setMaxExecutionTime(getMaxExecutionTime());
 		
 		
 		for (Binding b : getBindings()) {
@@ -216,21 +216,21 @@ public abstract class AbstractSparqlQuery extends AbstractQuery {
 		
 		if (dataset != null) {
 			if (query.getDataset() == null) {
-				query.setDataset(new DatasetImpl());
+				query.setDataset(new SimpleDataset());
 			}
-			for (URI d : dataset.getDefaultGraphs()) {
-				((DatasetImpl) query.getDataset()).addDefaultGraph(d);
+			for (IRI defaultGraph : dataset.getDefaultGraphs()) {
+				((SimpleDataset) query.getDataset()).addDefaultGraph(defaultGraph);
 			} 
-			for (URI d : dataset.getNamedGraphs()) {
-				((DatasetImpl) query.getDataset()).addNamedGraph(d);
+			for (IRI defaultGraph : dataset.getNamedGraphs()) {
+				((SimpleDataset) query.getDataset()).addNamedGraph(defaultGraph);
 			}
 		}
 		
 		if (sameAs) {
 			if (query.getDataset() == null) {
-				query.setDataset(new DatasetImpl());
+				query.setDataset(new SimpleDataset());
 			}
-			((DatasetImpl) query.getDataset()).addDefaultGraph(connection.getValueFactory().createURI(DISABLE_SAMEAS_URI));
+			((SimpleDataset) query.getDataset()).addDefaultGraph(connection.getValueFactory().createIRI(DISABLE_SAMEAS_URI));
 		}
 		
 		if (connection instanceof SailRepositoryConnection) {

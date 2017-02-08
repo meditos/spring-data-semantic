@@ -23,7 +23,7 @@ import java.util.Properties;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openrdf.http.protocol.Protocol;
-import org.openrdf.model.URI;
+import org.openrdf.model.IRI;
 import org.openrdf.model.ValueFactory;
 import org.openrdf.model.vocabulary.RDF;
 import org.openrdf.query.BindingSet;
@@ -86,6 +86,7 @@ public class SemanticDatabaseManagerTest {
 	
 	//----Auxiliary methods----------------------------------------------------
 	
+	@SuppressWarnings("unused")
 	private boolean testRepoWithQuery(Repository repo) {
 		RepositoryConnection conn = null;
 		try {
@@ -93,8 +94,8 @@ public class SemanticDatabaseManagerTest {
 			ValueFactory f = repo.getValueFactory();
 
 			//----add a new statement----
-			URI alice = f.createURI("http://example.org/people/alice");
-			URI person = f.createURI("http://example.org/people/person");
+			IRI alice = f.createIRI("http://example.org/people/alice");
+			IRI person = f.createIRI("http://example.org/people/person");
 			conn.add(alice, RDF.TYPE, person);
 
 			//----get the statement----

@@ -32,7 +32,7 @@ import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openrdf.model.Statement;
-import org.openrdf.model.URI;
+import org.openrdf.model.IRI;
 import org.openrdf.model.datatypes.XMLDatatypeUtil;
 import org.openrdf.repository.RepositoryException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -206,7 +206,7 @@ public class TestSemanticRepository {
 	
 	@Test
 	public void testFindList(){
-		List<URI> uris = Arrays.asList(MODEL_ENTITY.ENTITY_ONE, MODEL_ENTITY.ENTITY_TWO);
+		List<IRI> uris = Arrays.asList(MODEL_ENTITY.ENTITY_ONE, MODEL_ENTITY.ENTITY_TWO);
 		Iterable<ModelEntity> entities = modelEntityRepository.findAll(uris);
 		int count = 0;
 		for(ModelEntity entity : entities){
@@ -410,7 +410,7 @@ public class TestSemanticRepository {
 	}
 	
 	@Test
-	public void testFindByAssociationURI(){
+	public void testFindByAssociationIRI(){
 		List<ModelEntity> entities = modelEntityRepository.findByRelated(MODEL_ENTITY.ENTITY_THREE);
 		assertNotNull(entities);
 		assertEquals(2, entities.size());
@@ -420,7 +420,7 @@ public class TestSemanticRepository {
 	}
 	
 	@Test
-	public void testOneFindByAssociationURI(){
+	public void testOneFindByAssociationIRI(){
 		ModelEntity entity = modelEntityRepository.findOneByRelated(MODEL_ENTITY.ENTITY_THREE);
 		assertNotNull(entity);
 		assertTrue(entity.getUri().equals(MODEL_ENTITY.ENTITY_ONE) || entity.getUri().equals(MODEL_ENTITY.ENTITY_TWO));
@@ -447,7 +447,7 @@ public class TestSemanticRepository {
 	}
 	
 	@Test
-	public void testCountByAssociationURI(){
+	public void testCountByAssociationIRI(){
 		long count = modelEntityRepository.countByRelated(MODEL_ENTITY.ENTITY_THREE);
 		assertEquals(2, count);
 	}

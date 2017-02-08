@@ -15,23 +15,21 @@
  */
 package org.springframework.data.semantic.core;
 
-import info.aduna.iteration.Iterations;
-
 import java.io.File;
 import java.io.IOException;
 import java.security.InvalidParameterException;
 import java.util.Collection;
 import java.util.List;
+import java.util.Optional;
 
+import org.openrdf.model.IRI;
 import org.openrdf.model.Model;
 import org.openrdf.model.Namespace;
 import org.openrdf.model.Resource;
 import org.openrdf.model.Statement;
-import org.openrdf.model.URI;
 import org.openrdf.model.Value;
-import org.openrdf.model.impl.ContextStatementImpl;
-import org.openrdf.model.impl.NamespaceImpl;
-import org.openrdf.model.impl.StatementImpl;
+import org.openrdf.model.impl.SimpleNamespace;
+import org.openrdf.model.impl.SimpleValueFactory;
 import org.openrdf.query.BindingSet;
 import org.openrdf.query.MalformedQueryException;
 import org.openrdf.query.QueryEvaluationException;
@@ -46,6 +44,7 @@ import org.openrdf.repository.RepositoryException;
 import org.openrdf.repository.RepositoryResult;
 import org.openrdf.rio.RDFFormat;
 import org.openrdf.rio.RDFParseException;
+import org.openrdf.rio.Rio;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.dao.InvalidDataAccessApiUsageException;
@@ -56,6 +55,8 @@ import org.springframework.data.semantic.query.TupleSparqlQuery;
 import org.springframework.data.semantic.support.database.SesameConnectionPool;
 import org.springframework.data.semantic.support.exceptions.SemanticDatabaseAccessException;
 import org.springframework.data.semantic.support.exceptions.UncategorizedSemanticDataAccessException;
+
+import info.aduna.iteration.Iterations;
 
 /**
  * An implementation of {@link SemanticDatabase} that uses connection pooling.
@@ -151,7 +152,7 @@ public class PooledSemanticDatabase implements SemanticDatabase{
 		return getStatementsForQuadruplePattern(subject, null, null, null);
 	}
 
-	public List<Statement> getStatementsForPredicate(URI predicate){
+	public List<Statement> getStatementsForPredicate(IRI predicate){
 		return getStatementsForQuadruplePattern(null, predicate, null, null);
 	}
 
@@ -164,12 +165,12 @@ public class PooledSemanticDatabase implements SemanticDatabase{
 	}
 
 	public List<Statement> getStatementsForTriplePattern(Resource subject,
-			URI predicate, Value object){
+			IRI predicate, Value object){
 		return getStatementsForQuadruplePattern(subject, predicate, object, null);
 	}
 
 	public List<Statement> getStatementsForQuadruplePattern(Resource subject,
-			URI predicate, Value object, Resource context){
+			IRI predicate, Value object, Resource context){
 		RepositoryConnection con = connectionPool.getConnection();
 		try {
 			RepositoryResult<Statement> repoResult = con.getStatements(subject, predicate, object, true, context);
@@ -209,13 +210,13 @@ public class PooledSemanticDatabase implements SemanticDatabase{
 		}		
 	}
 
-	public void addStatement(Resource subject, URI predicate, Value object) {
-		addStatement(new StatementImpl(subject, predicate, object));
+	public void addStatement(Resource subject, IRI predicate, Value object) {
+		addStatement(SimpleValueFactory.getInstance().createStatement(subject, predicate, object));
 	}
 
-	public void addStatement(Resource subject, URI predicate, Value object,
+	public void addStatement(Resource subject, IRI predicate, Value object,
 			Resource context) {
-		addStatement(new ContextStatementImpl(subject, predicate, object, context));	
+		addStatement(SimpleValueFactory.getInstance().createStatement(subject, predicate, object, context));	
 	}
 
 	public void addStatements(Collection<? extends Statement> statements) {
@@ -242,13 +243,13 @@ public class PooledSemanticDatabase implements SemanticDatabase{
 
 	public void addStatementsFromFile(File rdfSource) {
 
-		RDFFormat format = RDFFormat.forFileName(rdfSource.getName());
-		if(format == null) {
+		Optional<RDFFormat> format = Rio.getParserFormatForFileName(rdfSource.getName());
+		if(!format.isPresent()) {
 			throw new InvalidParameterException("File should be in a valid RDF format; cannot determine one from the file extension.");
 		}
 		RepositoryConnection con = connectionPool.getConnection();
 		try {
-			con.add(rdfSource, null, format, new Resource[]{});
+			con.add(rdfSource, null, format.get(), new Resource[]{});
 		} catch (RDFParseException e) {
 			logger.error(e.getMessage(),e);
 			try {
@@ -304,11 +305,11 @@ public class PooledSemanticDatabase implements SemanticDatabase{
 		}		
 	}
 
-	public void removeStatements(Resource subject, URI predicate, Value object) {
+	public void removeStatements(Resource subject, IRI predicate, Value object) {
 		removeStatements(subject, predicate, object, null);
 	}
 
-	public void removeStatements(Resource subject, URI predicate, Value object,
+	public void removeStatements(Resource subject, IRI predicate, Value object,
 			Resource context) {
 		RepositoryConnection con = connectionPool.getConnection();
 		try {
@@ -368,9 +369,9 @@ public class PooledSemanticDatabase implements SemanticDatabase{
 		try {
 			String defaultNSName = con.getNamespace("");
 			if(defaultNSName == null){
-				return new NamespaceImpl("", "urn:spring-data-semantic:");
+				return new SimpleNamespace("", "urn:spring-data-semantic:");
 			}
-			return new NamespaceImpl("", defaultNSName);
+			return new SimpleNamespace("", defaultNSName);
 		} finally {
 			con.close();
 		}		

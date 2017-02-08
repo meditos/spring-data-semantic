@@ -16,7 +16,6 @@
 package org.springframework.data.semantic.query;
 
 import org.openrdf.OpenRDFException;
-import org.openrdf.model.impl.URIImpl;
 import org.openrdf.query.MalformedQueryException;
 import org.openrdf.query.QueryEvaluationException;
 import org.openrdf.query.QueryLanguage;
@@ -25,9 +24,10 @@ import org.openrdf.query.TupleQueryResult;
 import org.openrdf.query.TupleQueryResultHandler;
 import org.openrdf.query.TupleQueryResultHandlerException;
 import org.openrdf.query.UnsupportedQueryLanguageException;
-import org.openrdf.query.impl.DatasetImpl;
+import org.openrdf.query.impl.SimpleDataset;
 import org.openrdf.query.parser.ParsedTupleQuery;
 import org.openrdf.repository.RepositoryConnection;
+import org.springframework.data.semantic.support.util.ValueUtils;
 
 
 public class TupleSparqlQuery extends AbstractSparqlQuery implements TupleQuery {
@@ -83,9 +83,9 @@ public class TupleSparqlQuery extends AbstractSparqlQuery implements TupleQuery 
 		super.postPrepare();
 		if (count) {			
 			if (query.getDataset() == null) {
-				query.setDataset(new DatasetImpl());
+				query.setDataset(new SimpleDataset());
 			}
-			((DatasetImpl) query.getDataset()).addDefaultGraph(new URIImpl(COUNT_URI));
+			((SimpleDataset) query.getDataset()).addDefaultGraph(ValueUtils.createIRI(COUNT_URI));
 		}		
 	}
 	

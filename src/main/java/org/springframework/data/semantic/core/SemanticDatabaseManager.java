@@ -23,7 +23,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.openrdf.http.protocol.Protocol;
-import org.openrdf.model.Graph;
+import org.openrdf.model.Model;
 import org.openrdf.model.Resource;
 import org.openrdf.model.impl.TreeModel;
 import org.openrdf.model.util.GraphUtil;
@@ -160,7 +160,7 @@ public class SemanticDatabaseManager {
 			RDFHandlerException, IOException, GraphUtilException {
 
 		RepositoryConfig defaultConfig = new RepositoryConfig();
-		Graph graph = new TreeModel();
+		Model graph = new TreeModel();
 
 		InputStream configStream = SemanticDatabaseManager.class
 				.getClassLoader().getResourceAsStream(DEFAULT_CONFIG_FILE);
@@ -176,7 +176,7 @@ public class SemanticDatabaseManager {
 	}
 	
 	public static RepositoryConfig getConfig(String configFile){
-		Graph graph = new TreeModel();
+		Model graph = new TreeModel();
 		PathMatchingResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
 		RDFParser rdfParser = Rio.createParser(RDFFormat.TURTLE);
 		rdfParser.setRDFHandler(new StatementCollector(graph));

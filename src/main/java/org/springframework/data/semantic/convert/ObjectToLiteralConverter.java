@@ -17,12 +17,12 @@ package org.springframework.data.semantic.convert;
 
 import java.util.Date;
 
+import javax.xml.datatype.XMLGregorianCalendar;
+
 import org.openrdf.model.Value;
 import org.openrdf.model.ValueFactory;
-import org.openrdf.model.impl.ValueFactoryImpl;
+import org.openrdf.model.impl.SimpleValueFactory;
 import org.springframework.core.convert.converter.Converter;
-
-import javax.xml.datatype.XMLGregorianCalendar;
 
 /**
  * 
@@ -37,7 +37,7 @@ public class ObjectToLiteralConverter implements Converter<Object, Value> {
 	
 	private ObjectToLiteralConverter() {
 		super();
-		factory = ValueFactoryImpl.getInstance();
+		factory = SimpleValueFactory.getInstance();
 	}
 	
 	public static ObjectToLiteralConverter getInstance(){

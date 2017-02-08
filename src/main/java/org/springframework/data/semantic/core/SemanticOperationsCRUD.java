@@ -19,8 +19,8 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
+import org.openrdf.model.IRI;
 import org.openrdf.model.Model;
-import org.openrdf.model.URI;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.semantic.support.mapping.SemanticMappingContext;
 
@@ -63,7 +63,7 @@ public interface SemanticOperationsCRUD {
      * from all indexes and then deleted.
      * @param entity
      */
-    <T> void delete(URI resourceId, Class<? extends T> clazz);
+    <T> void delete(IRI resourceId, Class<? extends T> clazz);
     
     /**
      * Removes the given statements from the rdf store, the entity is first removed
@@ -83,7 +83,7 @@ public interface SemanticOperationsCRUD {
      * @param resourceId
      * @return
      */
-    <T> T find(URI resourceId, Class<? extends T> clazz);
+    <T> T find(IRI resourceId, Class<? extends T> clazz);
     
     /**
      * Retrieve all entities of the given type T.
@@ -115,7 +115,7 @@ public interface SemanticOperationsCRUD {
 	 * @param clazz
 	 * @return
 	 */
-	<T> boolean exists(URI resourceId, Class<? extends T> clazz);
+	<T> boolean exists(IRI resourceId, Class<? extends T> clazz);
 	
 	/**
 	 * Retrieve a collection of entities of the given type that fulfill the parameter requirements.
