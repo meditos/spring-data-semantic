@@ -21,13 +21,15 @@ import java.io.InputStream;
 import java.security.InvalidParameterException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
 import org.eclipse.rdf4j.http.protocol.Protocol;
+import org.eclipse.rdf4j.model.IRI;
 import org.eclipse.rdf4j.model.Model;
 import org.eclipse.rdf4j.model.Resource;
 import org.eclipse.rdf4j.model.impl.TreeModel;
-import org.eclipse.rdf4j.model.util.GraphUtil;
-import org.eclipse.rdf4j.model.util.GraphUtilException;
+import org.eclipse.rdf4j.model.util.ModelException;
+import org.eclipse.rdf4j.model.util.Models;
 import org.eclipse.rdf4j.model.vocabulary.RDF;
 import org.eclipse.rdf4j.repository.Repository;
 import org.eclipse.rdf4j.repository.RepositoryException;
@@ -157,7 +159,7 @@ public class SemanticDatabaseManager {
 
 	public static RepositoryConfig getDefaultConfig()
 			throws RepositoryConfigException, RDFParseException,
-			RDFHandlerException, IOException, GraphUtilException {
+			RDFHandlerException, IOException {
 
 		RepositoryConfig defaultConfig = new RepositoryConfig();
 		Model graph = new TreeModel();
@@ -168,7 +170,7 @@ public class SemanticDatabaseManager {
 		rdfParser.setRDFHandler(new StatementCollector(graph));
 		rdfParser.parse(configStream, RepositoryConfigSchema.NAMESPACE);
 
-		Resource repositoryNode = GraphUtil.getUniqueSubject(graph, RDF.TYPE,
+		Resource repositoryNode = getUniqueSubject(graph, RDF.TYPE,
 				RepositoryConfigSchema.REPOSITORY);
 
 		defaultConfig.parse(graph, repositoryNode);
@@ -185,7 +187,7 @@ public class SemanticDatabaseManager {
 				RepositoryConfig config = new RepositoryConfig();
 				
 				rdfParser.parse(resolver.getResource(configFile).getInputStream(), RepositoryConfigSchema.NAMESPACE);
-				Resource repositoryNode = GraphUtil.getUniqueSubject(graph, RDF.TYPE, RepositoryConfigSchema.REPOSITORY);
+				Resource repositoryNode = getUniqueSubject(graph, RDF.TYPE, RepositoryConfigSchema.REPOSITORY);
 				config.parse(graph, repositoryNode);
 				return config;
 			} catch (IOException e) {
@@ -203,12 +205,19 @@ public class SemanticDatabaseManager {
 			} catch (RDFHandlerException e) {
 				logger.error("The given configuration file found at '" + configFile
 						+ "' - is not a valid sesame repository configuration file.", e);
-			} catch (GraphUtilException e) {
+			} catch (ModelException e) {
 				logger.error("The given configuration file found at '" + configFile
 						+ "' - is not a valid sesame repository configuration file.", e);
 			}
 		}
 		return null;
+	}
+	
+	private static Resource getUniqueSubject(Model graph, IRI predicate, Resource object){
+		Optional<Resource> res = Models.subject(graph.filter(null, predicate, object));
+		if(!res.isPresent())
+			throw new ModelException("Unable to find unique subject for predicate " + predicate.stringValue() + " and object " + object.stringValue());
+		return res.get();
 	}
 
 	// ----Private methods------------------------------------------------------
