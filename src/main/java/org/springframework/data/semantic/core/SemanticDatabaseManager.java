@@ -21,14 +21,15 @@ import java.io.InputStream;
 import java.security.InvalidParameterException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
+import org.eclipse.rdf4j.RDF4JConfigException;
+import org.eclipse.rdf4j.RDF4JException;
 import org.eclipse.rdf4j.http.protocol.Protocol;
 import org.eclipse.rdf4j.model.Model;
 import org.eclipse.rdf4j.model.Resource;
 import org.eclipse.rdf4j.model.impl.TreeModel;
-import org.eclipse.rdf4j.model.util.GraphUtil;
-import org.eclipse.rdf4j.model.util.GraphUtilException;
-import org.eclipse.rdf4j.model.vocabulary.RDF;
+import org.eclipse.rdf4j.model.util.Models;
 import org.eclipse.rdf4j.repository.Repository;
 import org.eclipse.rdf4j.repository.RepositoryException;
 import org.eclipse.rdf4j.repository.config.RepositoryConfig;
@@ -157,22 +158,28 @@ public class SemanticDatabaseManager {
 
 	public static RepositoryConfig getDefaultConfig()
 			throws RepositoryConfigException, RDFParseException,
-			RDFHandlerException, IOException, GraphUtilException {
+			RDFHandlerException, IOException {
 
 		RepositoryConfig defaultConfig = new RepositoryConfig();
-		Model graph = new TreeModel();
+		Model model = new TreeModel();
 
 		InputStream configStream = SemanticDatabaseManager.class
 				.getClassLoader().getResourceAsStream(DEFAULT_CONFIG_FILE);
 		RDFParser rdfParser = Rio.createParser(RDFFormat.TURTLE);
-		rdfParser.setRDFHandler(new StatementCollector(graph));
+		rdfParser.setRDFHandler(new StatementCollector(model));
 		rdfParser.parse(configStream, RepositoryConfigSchema.NAMESPACE);
 
-		Resource repositoryNode = GraphUtil.getUniqueSubject(graph, RDF.TYPE,
-				RepositoryConfigSchema.REPOSITORY);
+		Resource repositoryNode = getUniqueSubject(model, RepositoryConfigSchema.REPOSITORY);
 
-		defaultConfig.parse(graph, repositoryNode);
+		defaultConfig.parse(model, repositoryNode);
 		return defaultConfig;
+	}
+	
+	private static Resource getUniqueSubject(Model model, Resource value) {
+		Optional<Resource> obj = Models.objectResource(model.filter(value, null, null));
+		if(obj.isPresent())
+			return obj.get();
+		throw new RDF4JConfigException();
 	}
 	
 	public static RepositoryConfig getConfig(String configFile){
@@ -185,7 +192,7 @@ public class SemanticDatabaseManager {
 				RepositoryConfig config = new RepositoryConfig();
 				
 				rdfParser.parse(resolver.getResource(configFile).getInputStream(), RepositoryConfigSchema.NAMESPACE);
-				Resource repositoryNode = GraphUtil.getUniqueSubject(graph, RDF.TYPE, RepositoryConfigSchema.REPOSITORY);
+				Resource repositoryNode = getUniqueSubject(graph, RepositoryConfigSchema.REPOSITORY);
 				config.parse(graph, repositoryNode);
 				return config;
 			} catch (IOException e) {
@@ -203,7 +210,7 @@ public class SemanticDatabaseManager {
 			} catch (RDFHandlerException e) {
 				logger.error("The given configuration file found at '" + configFile
 						+ "' - is not a valid sesame repository configuration file.", e);
-			} catch (GraphUtilException e) {
+			} catch (RDF4JException e) {
 				logger.error("The given configuration file found at '" + configFile
 						+ "' - is not a valid sesame repository configuration file.", e);
 			}
