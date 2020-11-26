@@ -190,6 +190,7 @@ public class PooledSemanticDatabase implements SemanticDatabase{
 	public void addStatement(Statement statement) {
 		RepositoryConnection con = connectionPool.getConnection();
 		try {
+			con.begin();
 			con.add(statement);
 			con.commit();
 		} catch (RepositoryException e) {
@@ -221,6 +222,7 @@ public class PooledSemanticDatabase implements SemanticDatabase{
 	public void addStatements(Collection<? extends Statement> statements) {
 		RepositoryConnection con = connectionPool.getConnection();
 		try {
+			con.begin();
 			con.add(statements);
 			con.commit();
 		} catch (RepositoryException e) {
@@ -285,6 +287,7 @@ public class PooledSemanticDatabase implements SemanticDatabase{
 	public void removeStatement(Statement statement) {
 		RepositoryConnection con = connectionPool.getConnection();
 		try {
+			con.begin();
 			con.remove(statement);
 			con.commit();
 		} catch (RepositoryException e) {
@@ -427,6 +430,7 @@ public class PooledSemanticDatabase implements SemanticDatabase{
 	public void clear() {
 		RepositoryConnection con = connectionPool.getConnection();
 		try {
+			con.begin();
 			con.remove(null, null, null, new Resource[0]);
 			con.commit();
 		} catch (RepositoryException e) {
